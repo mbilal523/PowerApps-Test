@@ -27,7 +27,7 @@ env:
 #edit your values here
   ENVIRONMENT_URL: 'https://org1a01b5e3.crm15.dynamics.com'
   CLIENT_ID: ${{ secrets.MYNCLIENTID }}
-  TENANT_ID: '302edaf0-65d6-449a-a796-b83cfb733f0'
+  TENANT_ID: ${{ secrets.MYNTENATID }}
 permissions:
   contents: write
 jobs:
@@ -48,7 +48,7 @@ jobs:
          environment-url: 'https://org1a01b5e3.crm15.dynamics.com'
          app-id: ${{ secrets.MYNAPPID }}
          client-secret: ${{ secrets.MYNCLIENTSECRET }}
-         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0'
+         tenant-id: ${{ secrets.MYNTENATID }}
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@v0
@@ -56,7 +56,7 @@ jobs:
          environment-url: 'https://org1a01b5e3.crm15.dynamics.com'
          app-id: ${{ secrets.MYNAPPID }}
          client-secret: ${{ secrets.MYNCLIENTSECRET }}
-         tenant-id: '302edaf0-65d6-449a-a796-b83cfb733f0'
+         tenant-id: ${{ secrets.MYNTENATID }}
          solution-name: 'PCFCSolution'
          solution-output-file: 'out/exported//PCFCSolution.zip'
          
