@@ -46,32 +46,32 @@ jobs:
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
          environment-url: 'https://org1a01b5e3.crm15.dynamics.com'
-         app-id: ${{ secrets.MYNAPPID }}
+         app-id: 'c9299480-c13a-49db-a7ae-cdfe54fe0313'
          client-secret: ${{ secrets.MYNCLIENTSECRET }}
          tenant-id: ${{ secrets.MYNTENATID }}
 
-    - name: export-solution action
-      uses: microsoft/powerplatform-actions/export-solution@v0
-      with:
-         environment-url: 'https://org1a01b5e3.crm15.dynamics.com'
-         app-id: ${{ secrets.MYNAPPID }}
-         client-secret: ${{ secrets.MYNCLIENTSECRET }}
-         tenant-id: ${{ secrets.MYNTENATID }}
-         solution-name: 'PCFCSolution'
-         solution-output-file: 'out/exported//PCFCSolution.zip'
+    # - name: export-solution action
+    #   uses: microsoft/powerplatform-actions/export-solution@v0
+    #   with:
+    #      environment-url: 'https://org1a01b5e3.crm15.dynamics.com'
+    #      app-id: ${{ secrets.MYNAPPID }}
+    #      client-secret: ${{ secrets.MYNCLIENTSECRET }}
+    #      tenant-id: ${{ secrets.MYNTENATID }}
+    #      solution-name: 'PCFCSolution'
+    #      solution-output-file: 'out/exported//PCFCSolution.zip'
          
-    - name: unpack-solution action
-      uses: microsoft/powerplatform-actions/unpack-solution@v0
-      with:
-        solution-file: 'out/exported//PCFCSolution.zip'
-        solution-folder: 'out/solutions//PCFCSolution'
-        solution-type: 'Unmanaged'
-        overwrite-files: true
+    # - name: unpack-solution action
+    #   uses: microsoft/powerplatform-actions/unpack-solution@v0
+    #   with:
+    #     solution-file: 'out/exported//PCFCSolution.zip'
+    #     solution-folder: 'out/solutions//PCFCSolution'
+    #     solution-type: 'Unmanaged'
+    #     overwrite-files: true
 
-    - name: branch-solution, prepare it for a PullRequest
-      uses: microsoft/powerplatform-actions/branch-solution@v0
-      with:
-         solution-folder: 'out/solutions//PCFCSolution'
-         solution-target-folder: 'solutions//AJC-17-PCFCSolution'
-         repo-token: ${{ secrets.GITHUBTOKENID }}
-         allow-empty-commit: true
+    # - name: branch-solution, prepare it for a PullRequest
+    #   uses: microsoft/powerplatform-actions/branch-solution@v0
+    #   with:
+    #      solution-folder: 'out/solutions//PCFCSolution'
+    #      solution-target-folder: 'solutions//AJC-17-PCFCSolution'
+    #      repo-token: ${{ secrets.GITHUBTOKENID }}
+    #      allow-empty-commit: true
